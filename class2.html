@@ -56,6 +56,141 @@
           <h2>Class 2</h2>
         </section>
 
+        <!-- Review -->
+      <section id="review">
+        <section>
+          <h3>Let's Look Back</h3>
+          <img src="img/backwards-dance.jpg" alt="Woman looking backward as she dances"/>
+          <p class="credit">Photo credit: <a href="http://www.flickr.com/photos/zeepack/4398082292/" target="_blank">Deepak Bhatia</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
+        </section>
+
+        <section>
+        <h3>Code Search</h3>
+          <p>In this code, spot the comments, variables, and operators.</p>
+<pre><code class="javascript">$billPreTip = 25.35;
+$tipPercentage = 0.20;
+$totalBill = $billPreTip * (1 + $tipPercentage);
+echo "Your total bill, with tip, is \$${totalBill}.";
+</code></pre>
+          <p>Do you see an escaped character? What else do you notice about the code?</p>
+        </section>
+      </section>
+
+      <!-- Functions -->
+      <section id="functions">
+        <section>
+          <h3>Functions</h3>
+          <p>Functions are separable, reusable pieces of code.
+          <img src="img/legos.jpg" alt="Pile of legos"/>
+          <p><small>Photo credit: <a href="http://www.flickr.com/photos/catzrule/9940388305/">Rick Payette</a> <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a></small></p>
+        </section>
+        <section>
+          <h3>Declaring Functions</h3>
+          <p>To declare (create) a function, you give it a name. You then include all the code for the function inside curly brackets:</p>
+<pre><code class="php">function turtleFacts() {
+  echo '<p>A turtle\'s lower shell is called plastron.</p>';
+  echo '<p>Turtles belong to the order Testudines</p>';
+}
+</code></pre>
+          <p>Function can have multiple lines.</p>
+        </section>
+        <section>
+          <h3>Using Functions</h3>
+          <p>To use a function, just type its name, followed by parenthesis.</p>
+<pre><code class="php">turtleFacts();
+</code></pre>
+          <p>We'll talk about what can go inside those parenthesis in a minute! For now, leave them empty.</p>
+        </section>
+        <section>
+          <h3>What's going on here?</h3>
+          <p>A function is a group of code you can reuse many times. Whenever you call a function by using it's name, you tell the browser to run the code inside the function.</p>
+          <p>You must declare a function before you can use it.</p>
+        </section>
+        <section>
+          <h3>Let's Develop It</h3>
+          <p>Write a function that outputs a sentence. Then call that function later in your code.</p>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>Arguments</h3>
+          <p>Functions can accept input values, called arguments.</p>
+<pre><code class="php">function callKitten ($kittenName){
+  echo "Come here, ${kittenName}!";
+}
+callKitten ('Fluffy'); //outputs 'Come here, Fluffy!'
+
+function addNumbers($a, $b) {
+  echo $a + $b;
+}
+addNumbers(5,7); //outputs 12
+addNumbers(9,12); //outputs 21
+</code></pre>
+        </section>
+        <section>
+          <h3>Arguments</h3>
+          <p>You can also pass variables into functions. These variables do not need to have the same name as the function arguments.</p>
+<pre><code class="php">function addOne($inputNumber){
+  $newNumber = $inputNumber + 1;
+  echo "&lt;p&gt;You now have ${newNumber}&lt;/p&gt;";
+}
+
+//Declare variables
+$numberOfKittens = 5;
+$numberOfPuppies = 4;
+
+//Use them in functions
+addOne($numberOfKittens);
+addOne($numberOfPuppies);
+</code></pre>
+        </section>
+        <section>
+          <h3>Let's Develop It</h3>
+          <p>Write a function to say hello! This program should:</p>
+          <ul>
+            <li>Accept two arguments, a first name and a last name.</li>
+            <li>Output a sentence like this "Hello [Name]. It's nice to meet you!"</li>
+          </ul>
+          <p>Don't forget to test your function out with some different names!</p>
+          <aside class="notes">Sample solution:
+function greetMe ($firstName, $lastName){
+  echo "<p>Hello $firstName ${lastName}. It's nice to meet you!</p>";
+}
+greetMe ('Ada', 'Lovelace');
+greetMe ('Margaret', 'Hamilton');
+greetMe ('Rear Admiral Grace', 'Hopper');
+          </aside>
+        </section>
+        </section>
+
+        <!-- Returning values -->
+        <section>
+        <section>
+          <h3>Returning Values</h3>
+          <p>You can have a function give you back a value, to use later.</p>
+<pre><code class="php">function square($num) {
+  return $num * $num;
+}
+echo square(4);   // outputs '16'.
+$squareOfFive = square(5); // will make $squareOfFive equal 25.
+</code></pre>
+          <p>Return will immediately end a function.</p>
+        </section>
+        <section>
+          <h3>Let's Develop It</h3>
+          <p>Add a return statement to your Hello function. Use that function to set the value of a variable.</p>
+          <aside class="notes">Sample solution:
+function greetMe ($firstName, $lastName){
+  $myGreeting = "<p>Hello $firstName ${lastName}. It's nice to meet you!</p>";
+  return $myGreeting;
+}
+echo greetMe ('Ada', 'Lovelace');
+echo greetMe ('Margaret', 'Hamilton');
+echo greetMe ('Rear Admiral Grace', 'Hopper');
+          </aside>
+        </section>
+    </section>
+
       <section>
         <section>
           <h3>Resources</h3>
@@ -98,7 +233,7 @@
           { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
           { src: 'plugin/zoom-js/zoom.js', async: true },
           { src: 'plugin/notes/notes.js', async: true },
-                    { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
+          { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
 
