@@ -189,7 +189,37 @@ echo greetMe ('Margaret', 'Hamilton');
 echo greetMe ('Rear Admiral Grace', 'Hopper');
           </aside>
         </section>
-    </section>
+      </section>
+
+      <!-- Variable Scope -->
+      <section id="scope">
+        <section>
+          <h3>Variable Scope</h3>
+          <p>The scope of a variable is how long the computer will remember it.</p>
+          <img src="img/footprints.jpg" alt="Footprints being washed away"/>
+          <p><small>Photo credit: <a href="http://www.flickr.com/photos/heyvikram/187950111/" target="_blank">_vikram</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></small></p>
+        </section>
+        <section>
+          <h3>Global Scope</h3>
+          <p>A variable declared outside a function has a <strong>global</strong> scope and can only be accessed outside a function.</p>
+<pre><code class="php">$awesomeGroup = 'Girl Develop It'; //Global scope
+function whatIsAwesome() {
+  echo "$awesomeGroup is pretty awesome."; //This will fail
+}
+whatIsAwesome();
+</code></pre>
+        </section>
+        <section>
+          <h3>Local Scope</h3>
+          <p>A variable declared within a function has a <strong>local</strong> scope and can only be accessed within that function.</p>
+<pre><code class="php">function whatIsAwesome() {
+  $awesomeGroup = 'Girl Develop It'; //Local scope
+  echo "$awesomeGroup is pretty awesome."; //This will work
+}
+whatIsAwesome();
+</code></pre>
+        </section>
+      </section>
 
       <section>
         <section>
