@@ -106,7 +106,7 @@
             <li>Originally, PHP stood for Personal Home Page. The acronym doesn't mean much anymore, but officially it is called PHP: Hypertext Processor</li>
             <li>PHP is a server-side processing language. The server reads the PHP code and outputs browser-friendly HTML</li>
             <li>PHP has simple support for databases like MySQL.</li>
-            <li>With PHP, you can write code once and use it everywhere. Remember, you want DRY code (Don't Repeat Yourself).</li>
+            <li>With PHP, you can write code once and use it everywhere. Remember, you want DRY code (<strong>D</strong>on't <strong>R</strong>epeat <strong>Y</strong>ourself).</li>
             <li>PHP lets you build dynamic webpages that respond to input from users.</li>
           </ul>
         </section>
@@ -115,7 +115,7 @@
       <!-- First Try -->
       <section>
         <h3>Let's Develop It</h3>
-        <p>Make your first page! We are going to start in the browser, and do an full install later.</p>
+        <p>Make your first page! We are going to start in the browser and do an full install later.</p>
         <p>Go to <a href="http://phpfiddle.org/lite" target="_blank">PHP Fiddle.</a> Paste this code into your window and select run.</p>
 <pre><code class="php">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -392,13 +392,14 @@ $numberOfAnimals = $numberOfKittens + $numberOfPuppies;
           <h3>Single Quotes vs. Double Quotes</h3>
           <ul>
             <li>You can use single quotes or double quotes with strings. PHP will process them differently.</li>
-            <li>Single quoted strings display things "as is." PHP won't check for things like variables</li>
-            <li>Double quoted strings are parsed. PHP will look for things like variables inside the string, and display them like regular code.</li>
-            <li>Single strings process a slightly faster, but the difference is small.</li>
+            <li>Single-quoted strings display things "as is." PHP won't check for things like variables</li>
+            <li>Double-quoted strings are parsed. PHP will look for things like variables inside the string, and display them like regular code.</li>
+            <li>Single-quoted strings process slightly faster, but the difference is small.</li>
           </ul>
         </section>
         <section>
           <h3>Single Quotes vs. Double Quotes</h3>
+          <p>Here's an example:</p>
 <pre><code class="php">$numberOfCats = 5;
 //outputs I have $numberOfCats cats
 echo '<p>I have $numberOfCats cats</p>';
