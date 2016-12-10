@@ -57,14 +57,229 @@
           <h2>Class 3</h2>
         </section>
 
-      <section>
-        <section>
-          <h3>Resources</h3>
-          <ul>
-          <li><a href="http://www.php.net/manual/en/" target="_blank">PHP Manual</a>, the official PHP documentation. Check the comments; they are useful.</li>
-          <li><a href="http://www.codecademy.com/tracks/php" target="_blank">Code Academy</a>, with interactive PHP lessons to help you review.</li>
-          </ul>
+        <!-- Install -->
+        <section id="install">
+          <section>
+            <h3>Let's Develop It</h3>
+            <p>Let's get PHP running on your machine.<p>
+            <p>PCs: <a href="http://www.wampserver.com/en/download.php">http://www.wampserver.com/en/download.php</a></p>
+            <p>Macs: <a href="http://www.mamp.info/en/downloads/index.html">http://www.mamp.info/en/downloads/index.html</a></p>
+            <p>Test: <a href="http://localhost/">http://localhost/</a>
+          </section>
+          <section>
+            <h3>Let's Develop It</h3>
+            <p>Make your first page! Find your www directory. On Windows, the default is C:\wamp\www. On a Mac, it is \Applications\MAMP\htdocs\. Create a new folder, called gdi, and then create a file inside called index.php.</p>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Test Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;
+    &lt;?php
+    echo 'Hello World';
+    ?&gt;
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+          </section>
+          <section>
+            <h3>Let's Develop It</h3>
+            <p>If everything worked, you should see your new page at <a href="http://localhost/gdi" target="_blank">http://localhost/gdi</a></p>
+          </section>
         </section>
+
+        <!-- Include and site structure -->
+        <section>
+          <section>
+            <h3>Include</h3>
+            <p>Remeber DRY code (<strong>D</strong>on't <strong>R</strong>epeat <strong>Y</strong>ourself)? One of the best ways to avoid repeating code is to use <code>include</code>. The include command will include all the code from another file inside the current file. This is a powerful way to use a common file for repeated site elements, like a header, footer, or sidebar.</p>
+          </section>
+        </section>
+        <section>
+          <h3>Using Include</h3>
+          <p>Let's say you have one file called vars.php, where you store all your common variables.</p>
+<pre><code class="php">$color = 'green';
+$fruit = 'apple';
+</code></pre>
+          <p>If you include this file in another file, you can use those variables.</p>
+<pre><code class="php">echo "A $color $fruit"; // Outputs A
+include 'vars.php';
+echo "A $color $fruit"; // Outputs A green apple
+</code></pre>
+        </section>
+        <section>
+          <h3>Let's Develop It</h3>
+          <p>I have created a basic sample site, broken into a header, footer, and sidebar.</p>
+          <ul>
+            <li><a href="class3-codesample.zip">Download a copy</a> and place all the files directly into your gdi folder</li>
+            <li>Go to <a href="http://localhost/gdi/sample.php" target="_blank">http://localhost/gdi/sample.php</a> to see the page</li>
+            <li>Using your text editor, look at the different pieces of the site. Try changing things and see what happens!</li>
+        </section>
+        <!-- Loops -->
+        <section id="loops">
+          <section>
+            <h3>Loops</h3>
+            <img src="img/kitten-circle.jpg" alt="Kitten in ball"/>
+            <p><small>Photo credit: <a href="http://www.flickr.com/photos/courtneypix/9185593/" target="_blank">Courtney Patubo Kranzke</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></small></p>
+          </section>
+          <section>
+            <h3>While loops</h3>
+            <p>While will repeat the same code over and over until some condition is met.</p>
+<pre><code class="php">$bottlesOfBeer = 99;
+while ($bottlesOfBeer &gt;= 1) {
+  echo $bottlesOfBeer . ' bottles of beer on the wall &lt;br /&gt;';
+  $bottlesOfBeer = $bottlesOfBeer - 9;
+}
+</code></pre>
+          </section>
+          <section>
+            <h3>Infinite Loops</h3>
+            <p>Make sure something changes in the loop, or your loop will go on forever...</p>
+            <img src="img/infinite-loop.jpg" alt="Spiral that goes on toward infinity"/>
+            <p><small>Photo credit: <a href="http://www.flickr.com/photos/samueljohn/5348462863/" target="_blank">Samuel John</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></small></p>
+          </section>
+          <section>
+            <h3>For loops</h3>
+            <p>For loops are very similar, but you declare a counter in the statement.</p>
+<pre><code class="php">//will count 1 to 10
+for ($i = 1; $i &lt;= 10; $i++) {
+  echo $i;
+}
+</code></pre>
+          </section>
+          <section>
+            <h3>Loops and logic</h3>
+            <p>You can add other statements or logical operators inside the loops.</p>
+<pre><code class="php">//Count from 1 to 50.
+for ($i = 1; $i &lt;= 50; $i++) {
+  echo $i;
+  //Says 'Buzz' after multiples of three
+  if ($i%3 == 0) {
+    echo ' Buzz';
+  }
+  //Says 'Bang' after multiples of five
+  if ($i%5 == 0) {
+    echo ' Bang';
+  }
+  echo '&lt;br /&gt;'; //line break
+}
+</code></pre>
+          </section>
+          <section>
+            <h3>Let's Develop It</h3>
+            <p>Write a loop that gives you the 9's times table,<br /> from 9 x 1 = 9 to 9 x 12 = 108.</p>
+            <p>Finish early? Try using a loop inside a loop to write all the times tables, from 1 to 12.</p>
+          </section>
+        </section>
+
+        <!-- Arrays -->
+        <section id="arrays">
+          <section>
+            <h3>Arrays</h3>
+            <img src="img/kitten-group.jpg" alt="Group of kittens"/>
+            <p><small>Photo credit: <a href="http://www.flickr.com/photos/pasotraspaso/4444291348/" target="_blank">Jesus Solana</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></small></p>
+          </section>
+          <section>
+            <h3>Arrays</h3>
+            <p>Arrays are lists of values associated with a key. The key needs to be an integer or a string, the value can be any type.</p>
+<pre><code class="php">$kittenColors = array(
+  'Fluffy' => 'tabby',
+  'Midnight' => 'black',
+  'Admiral Snuggles' => 'white'
+);
+</code></pre>
+          </section>
+          <section>
+            <h3>Using arrays</h3>
+            <p>Once you have an array, you use a key to call a value.</p>
+<pre><code class="php">$kittenColors = array(
+  'Fluffy' => 'tabby',
+  'Midnight' => 'black',
+  'Admiral Snuggles' => 'white'
+);
+echo $kittenColors['Midnight']; //prints 'black'
+</code></pre>
+          </section>
+          <section>
+            <h3>Expanding arrays</h3>
+            <p>Arrays don't have a fixed length; you can add and take away items.</p>
+<pre><code class="php">$kittenColors = array(
+  'Fluffy' =&gt; 'tabby',
+  'Midnight' =&gt; 'black',
+  'Admiral Snuggles' =&gt; 'white'
+);
+
+// This adds a new element to the array with key 'Monster'
+$kittenColors['Monster'] = 'gray';
+
+// This removes the element with the key 'Midnight'
+unset($kittenColors['Midnight']);
+</code></pre>
+          </section>
+          <section>
+            <h3>Arrays without keys</h3>
+            <p>If you don't specify a key, PHP will just automatically assign integers as keys, starting with zero.</p>
+<pre><code class="php">$fruits = array("apple", "orange", "banana", "kiwi");
+var_dump($fruits); //shows whole array
+echo $fruits[1]; //will print orange
+
+//You can add with no key as well
+$fruits[] = 'mango';
+var_dump($fruits);
+</code></pre>
+          </section>
+          <section>
+            <h3>Let's Develop It</h3>
+            <p>Create an array of your friends and their favorite foods. Echo a few values onto your screen.</p>
+          </section>
+        </section>
+
+        <!-- For Each Loops -->
+        <section id="foreach">
+          <section>
+            <h3>Foreach</h3>
+            <img src="img/holding-hands.jpg" alt="Couple holding hands"/>
+            <p><small>Photo credit: <a href="http://www.flickr.com/photos/mtsofan/8221708017/" target="_blank">John</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></small></p>
+          </section>
+          <section>
+            <h3>Foreach loops</h3>
+            <p>Foreach is a special type of loop that works with arrays.</p>
+<pre><code class="php">$numberList = array(1, 2, 3, 4, 5);
+foreach ($numberList as $value) {
+  echo $value . ' times 2 equals ' . ($value*2) . '&lt;br /&gt;';
+}
+</code></pre>
+          </section>
+          <section>
+            <h3>Arrays with keys</h3>
+            <p>You can also use the key values in your foreach loop.</p>
+<pre><code class="php">$kittenColors = array(
+  'Fluffy' =&gt; 'tabby',
+  'Midnight' =&gt; 'black',
+  'Admiral Snuggles' =&gt; 'white',
+);
+
+foreach ($kittenColors as $name =&gt; $color) {
+  echo 'The kitten ' . $name . ' has ' . $color . ' fur.&lt;br /&gt;';
+}
+</code></pre>
+          </section>
+          <section>
+            <h3>Let's Develop It</h3>
+            <p>Take your array of friends and write a foreach loop that echos "My friend NAME likes FOOD."</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h3>Resources</h3>
+            <ul>
+            <li><a href="http://www.php.net/manual/en/" target="_blank">PHP Manual</a>, the official PHP documentation. Check the comments; they are useful.</li>
+            <li><a href="http://www.codecademy.com/tracks/php" target="_blank">Code Academy</a>, with interactive PHP lessons to help you review.</li>
+            </ul>
+          </section>
       </section>
 
       </div>
