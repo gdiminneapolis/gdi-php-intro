@@ -108,11 +108,11 @@ echo "They are either $age or ".($age - 1);
         <div class="codebox" id="example3Code">
 <pre>$inputCelsius  = 25;
 $outputFahrenheit = ($inputCelsius * 9)/5 + 32;
-echo "&lt;p&gt;${inputCelsius}°C is ${outputFahrenheit}°F&lt;/p&gt;";
+echo "&lt;p&gt;$inputCelsius°C is $outputFahrenheit°F&lt;/p&gt;";
 
 $inputFahrenheit  = 73;
 $outputCelsius = ($inputFahrenheit - 32)/9 * 5;
-echo "&lt;p&gt;${inputFahrenheit}°F is ${outputCelsius}°C.&lt;/p&gt;";
+echo "&lt;p&gt;$inputFahrenheit°F is $outputCelsius°C.&lt;/p&gt;";
 </pre>
         </div>
 
@@ -129,7 +129,7 @@ echo "&lt;p&gt;${inputFahrenheit}°F is ${outputCelsius}°C.&lt;/p&gt;";
         <div class="codebox" id="example4Code">
 <pre>$inputFahrenheit  = rand(0, 100);
 $outputCelsius = ($inputFahrenheit - 32)/9 * 5;
-echo "It is ${inputFahrenheit}°F today. That's ${outputCelsius}°C.";
+echo "It is $inputFahrenheit°F today. That's $outputCelsius°C.";
 </pre>
         </div>
       </section>
@@ -338,19 +338,21 @@ echo fixStart('kitten');
 
       <section>
         <h2 id="class3">Class 3</h2>
-        <p>Coming soon!</p>
 
-        <!--<h3>Even/Odd Counter</h3>
+        <p>Coming Soon</p>
+
+
+        <h3>Even/Odd Counter</h3>
         <p>Write a for loop that will iterate from 0 to 20. For each iteration, it will check if the current number is even or odd, and report that to the screen (e.g. "2 is even")</p>
 
         <button onclick="showSolution(11)">Show/Hide Solution</button>
         <div class="codebox" id="example11Code">
 <pre>
-for ($i = 0; i &lt;= 20; i++) {
-  if (i % 2 === 0) {
-    echo i + ' is even';
+for ($i = 0; $i &lt;= 20; $i++) {
+  if ($i % 2 === 0) {
+    echo "$i is even&lt;br /&gt;";
   } else {
-    echo i + ' is odd';
+    echo "$i is odd&lt;br /&gt;";
   }
 }
 </pre>
@@ -359,15 +361,20 @@ for ($i = 0; i &lt;= 20; i++) {
         <h3>Top Choice</h3>
         <p>Create an array to hold your top choices (colors, presidents, whatever). For each choice, echo to the screen a string like: "My #1 choice is blue."</p>
 
-        <p>Bonus: Change it to "My 1st choice, "My 2nd choice", "My 3rd choice", picking the right suffix for the number based on what it is. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice">The method slice</a> might be helpful here.</p>
+        <p>Bonus: Change it to "My 1st choice, "My 2nd choice", "My 3rd choice", picking the right suffix for the number based on what it is. <a href="http://php.net/manual/en/function.substr.php">The function substr</a> might be helpful here.</p>
 
         <button onclick="showSolution(12)">Show/Hide Solution</button>
         <div class="codebox" id="example12Code">
 <pre>
 //Simple code
-$choices = ['red', 'orange', 'pink', 'yellow'];
-for ($i = 0; i &lt; choices.length; i++) {
-  echo 'My #' + (i + 1) + ' choice is ' + choices[i]);
+$choices = array('red', 'orange', 'pink', 'yellow');
+
+foreach ($choices as $value) {
+  echo $value . ' times 2 equals ' . ($value*2) . '<br />';
+}
+
+for ($i = 0; $i &lt; choices.length; $i++) {
+  echo 'My #' . ($i + 1) . ' choice is ' + $choices[i]);
 }
 
 //Bonus solution
@@ -427,7 +434,7 @@ for ($i = 0; i &lt; books.length; i++) {
   }
 }
 </pre>
-</div> -->
+</div>
 
 
       </section>

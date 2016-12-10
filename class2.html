@@ -71,7 +71,7 @@
 <pre><code class="javascript">$billPreTip = 25.35;
 $tipPercentage = 0.20; //Can be changed
 $totalBill = $billPreTip * (1 + $tipPercentage);
-echo "Your total bill, with tip, is \$${totalBill}.";
+echo "Your total bill, with tip, is \$$totalBill.";
 </code></pre>
           <p>Do you see an escaped character? What else do you notice about the code?</p>
         </section>
@@ -117,7 +117,7 @@ echo "Your total bill, with tip, is \$${totalBill}.";
           <h3>Arguments</h3>
           <p>Functions can accept input values, called arguments.</p>
 <pre><code class="php">function callKitten ($kittenName){
-  echo "Come here, ${kittenName}!";
+  echo "Come here, $kittenName!";
 }
 callKitten ('Fluffy'); //outputs 'Come here, Fluffy!'
 
@@ -133,7 +133,7 @@ addNumbers(9,12); //outputs 21
           <p>You can also pass variables into functions. These variables do not need to have the same name as the function arguments.</p>
 <pre><code class="php">function addOne($inputNumber){
   $newNumber = $inputNumber + 1;
-  echo "&lt;p&gt;You now have ${newNumber}&lt;/p&gt;";
+  echo "&lt;p&gt;You now have $newNumber&lt;/p&gt;";
 }
 
 //Declare variables
@@ -155,7 +155,7 @@ addOne($numberOfPuppies);
           <p>Don't forget to test your function out with some different names!</p>
           <aside class="notes">Sample solution:
 function greetMe ($firstName, $lastName){
-  echo "<p>Hello $firstName ${lastName}. It's nice to meet you!</p>";
+  echo "<p>Hello $firstName $lastName. It's nice to meet you!</p>";
 }
 greetMe ('Ada', 'Lovelace');
 greetMe ('Margaret', 'Hamilton');
@@ -182,7 +182,7 @@ $squareOfFive = square(5); // will make $squareOfFive equal 25.
           <p>Add a return statement to your Hello function. Use that function to set the value of a variable.</p>
           <aside class="notes">Sample solution:
 function greetMe ($firstName, $lastName){
-  $myGreeting = "<p>Hello $firstName ${lastName}. It's nice to meet you!</p>";
+  $myGreeting = "<p>Hello $firstName $lastName. It's nice to meet you!</p>";
   return $myGreeting;
 }
 echo greetMe ('Ada', 'Lovelace');
@@ -252,7 +252,7 @@ $dogsRule = false;
   // statements to execute
 }
 </code></pre>
-<pre><code class="php">$bananas = 5
+<pre><code class="php">$bananas = 5;
 if ($bananas &gt; 0) {
   echo 'You have some bananas!';
 }
