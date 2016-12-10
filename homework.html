@@ -343,7 +343,7 @@ echo fixStart('kitten');
 
 
 
-<!--
+
         <h3>Even/Odd Counter</h3>
         <p>Write a for loop that will iterate from 0 to 20. For each iteration, it will check if the current number is even or odd, and report that to the screen (e.g. "2 is even")</p>
 
@@ -370,37 +370,39 @@ for ($i = 0; $i &lt;= 20; $i++) {
 <pre>
 //Simple code
 $choices = array('red', 'orange', 'pink', 'yellow');
-
-foreach ($choices as $value) {
-  echo $value . ' times 2 equals ' . ($value*2) . '<br />';
-}
-
-for ($i = 0; $i &lt; choices.length; $i++) {
-  echo 'My #' . ($i + 1) . ' choice is ' + $choices[i]);
+foreach ($choices as  $key => $value)  {
+  echo "My #" . ($key + 1) . " choice is $value<br />";
 }
 
 //Bonus solution
-$choices = ['red', 'orange', 'pink', 'yellow'];
-function findLast (inputNum) {
-  tmpSlice = String(inputNum);
-  $lastDigit = (tmpSlice.slice(-1));
-  return lastDigit;
-}
 
-for ($i = 0; i &lt; choices.length; i++) {
-  $choiceNum = i + 1;
-  $choiceNumSuffix = 0;
-  $choiceNumLast = findLast(choiceNum);
-  if (choiceNumLast == 1) {
-    choiceNumSuffix = 'st';
-  } else if (choiceNumLast == 2) {
-    choiceNumSuffix = 'nd';
-  } else if (choiceNumLast == 3) {
-    choiceNumSuffix = 'rd';
-  } else {
-    choiceNumSuffix = 'th';
+//This is a giant array, to test for tons of cases.
+$choices = ['Tiger' , 'Puss' , 'Smokey' , 'Misty' , 'Tigger' , 'Kitty' , 'Oscar' , 'Missy' , 'Max' , 'Ginger' , 'Molly' , 'Charlie' , 'Poppy' , 'Smudge' , 'Millie' , 'Daisy' , 'Jasper' , 'Felix' , 'Sooty' , 'Alfie' , 'Minou' , 'Grisou' , 'Ti-Mine' , 'Félix' , 'Caramel' , 'Mimi' , 'Pacha' , 'Charlotte' , 'Minette' , 'Chanel'];
+
+foreach ($choices as  $key => $value)  {
+  $choiceNum = $key + 1;
+
+  /*Let's figure out the right suffix! Rules:
+  Use st for numbers ending in 1 (1st, 21st, 31st) EXCEPT 11 (11th)
+  Use nd for numbers ending in 2 (2nd, 22nd, 32nd) EXCEPT 12 (12th)
+  Use rd for numbers ending in 3 (3rd, 23rd, 33rd) EXCEPT 13 (13th)
+  Use th for all other numbers*/
+
+  //th is the defaut choice, so we will use it as the initial value
+  $choiceNumSuffix = 'th';
+  //Then change it for our special classes
+  if ($choiceNum <= 10 || $choiceNum >= 14){
+    $lastDigit = substr($choiceNum, -1);
+    if ($lastDigit == 1) {
+      $choiceNumSuffix = 'st';
+    } else if ($lastDigit == 2) {
+      $choiceNumSuffix = 'nd';
+    } else if ($lastDigit == 3) {
+      $choiceNumSuffix = 'rd';
+    }
   }
-  echo 'My ' + choiceNum + choiceNumSuffix + ' choice is ' + choices[i]);
+
+  echo "My $choiceNum$choiceNumSuffix choice is $value<br />";
 }
 </pre>
         </div>
@@ -440,7 +442,7 @@ for ($i = 0; i &lt; books.length; i++) {
 
 
       </section>
--->
+
       <section>
         <h2 id="class4">Class 4</h2>
         <p>Coming soon!</p>
