@@ -324,7 +324,173 @@ if ($bananas &gt; 0) {
         </section>
       </section>
 
-      <section>
+      <!--If/else -->
+        <section id="if-else">
+          <section>
+            <h3>Even more control flow</h3>
+            <img src="img/toomanysigns.jpg" alt="Sign post with multiple signs"/>
+            <p><small>Photo credit: <a href="http://www.flickr.com/photos/thomashawk/2402598275/" target="_blank">Thomas Hawk</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></small></p>
+          </section>
+          <section>
+            <h3>The if/else statement</h3>
+            <p>Use else to provide an alternate set of instructions.</p>
+<pre><code class="php">$age = 28;
+if ($age &gt;= 16) {
+  echo 'Yay, you can drive!';
+} else {
+  echo 'Sorry, but you have ' . (16 - $age) .
+  ' years until you can drive.';
+}
+</code></pre>
+          </section>
+          <section>
+            <h3>The if/else if/else statement</h3>
+            <p>If you have multiple conditions, you can use else if.</p>
+<pre><code class="php">$age = 20;
+if ($age >= 35) {
+  echo 'You can vote AND hold any place in government';
+} else if ($age >= 30) {
+  echo 'You can vote AND run for the Senate';
+} else if ($age >= 18) {
+  echo 'You can vote';
+} else {
+  echo 'You can\'t vote, but you can still
+  write your representatives.';
+}
+</code></pre>
+          </section>
+          <section>
+            <h3>Switch statments: Numbers</h3>
+            <p>If you need to match numbers against a fixed set, you can also use a switch. You can only use a switch to check for equal values, without comparison operators.</p>
+<pre><code class="php">$i = 1;
+switch ($i) {
+  case 0:
+    echo "i equals 0";
+    break;
+  case 1:
+    echo "i equals 1";
+    break;
+  case 2:
+    echo "i equals 2";
+    break;
+  default:
+   echo "i is not equal to 0, 1 or 2";
+}
+</code></pre>
+          </section>
+          <section>
+            <h3>Switch statments: Strings</h3>
+            <p>You can also use switch statements with strings.</p>
+<pre><code class="php">$fruit = 'banana';
+switch ($fruit) {
+  case 'apple':
+    echo 'Mmm, an apple';
+    break;
+  case 'banana':
+    echo 'I love bananas!';
+    break;
+  case 'cantalope':
+    echo 'Cantalope is delicious';
+    break;
+  default:
+   echo 'I don\'t understand this fruit';
+}
+</code></pre>
+          </section>
+          <section>
+            <h3>Switch statments: Break</h3>
+            <p>A break statement stops the switch. If you omit the break, it will execute the next comparison as well. You can also leave a case blank to keep moving</p>
+<pre><code class="php">$i = 0;
+  switch ($i) {
+  case 0:
+    echo 'i is 0';
+  case 1:
+  case 2:
+    echo "i is less than 3 but not negative";
+    break;
+  case 3:
+    echo "i is 3";
+  }
+</code></pre>
+          </section>
+          <section>
+            <h3>Let's Develop It</h3>
+            <p>Modify your "wear a coat" code for these conditions:</p>
+            <ol>
+              <li>If it is less than 50 degrees, wear a coat.</li>
+              <li>If it is less than 30 degrees, wear a coat and a hat.</li>
+              <li>If it is less than 0 degrees, stay inside.</li>
+              <li>Otherwise, wear whatever you want.</li>
+            </ol>
+          </section>
+          <section>
+            <h3>Logical Operators</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th width="200px">Example</th>
+                  <th width="150px">Name</th>
+                  <th>Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>$a and $b</td>
+                  <td>And</td>
+                  <td><strong><code>TRUE</code></strong> if both $a and $b are <strong><code>TRUE</code></strong>.</td>
+                </tr>
+                <tr>
+                  <td>$a &amp;&amp; $b</td>
+                  <td>And</td>
+                  <td><strong><code>TRUE</code></strong> if both $a and $b are <strong><code>TRUE</code></strong>.</td>
+                </tr>
+                <tr>
+                  <td>$a or $b</td>
+                  <td>Or</td>
+                  <td><strong><code>TRUE</code></strong> if either $a or $b is <strong><code>TRUE</code></strong>.</td>
+                </tr>
+                <tr>
+                  <td>$a || $b</td>
+                  <td>Or</td>
+                  <td><strong><code>TRUE</code></strong> if either $a or $b is <strong><code>TRUE</code></strong>.</td>
+                </tr>
+                <tr>
+                  <td>$a xor $b</td>
+                  <td>Xor</td>
+                  <td><strong><code>TRUE</code></strong> if either $a or $b is <strong><code>TRUE</code></strong>, but not both.</td>
+                </tr>
+                <tr>
+                  <td>! $a</td>
+                  <td>Not</td>
+                  <td><strong><code>TRUE</code></strong> if $a is not <strong><code>TRUE</code></strong>.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h3>Using logical operators</h3>
+            <p>You can use these operators to combine conditions.</p>
+<pre><code class="php">$bananas = 5;
+if ($bananas &gt;=2 &amp;&amp; $bananas &lt;7) {
+  echo 'You have a reasonable number of bananas';
+} else {
+  echo 'Check your banana supply';
+}
+</code></pre>
+          </section>
+          <section>
+            <h3>Let's Develop It</h3>
+            <p>Add a logical operator to your what to wear program.</p>
+          </section>
+        </section>
+
+    <!-- Final slides-->
+      <section id="final">
+        <section>
+          <h3>You did it!</h3>
+          <img src="img/kitten-yay.jpg" alt="Happy cat"/>
+          <p><small>Photo credit: <a href="http://www.flickr.com/photos/laura-kali/7399310732/" target="_blank">OnceAndFutureLaura</a> <a href="http://creativecommons.org/licenses/by-sa/2.0/" target="_blank">cc</a></small></p>
+        </section>
         <section>
           <h3>Resources</h3>
           <ul>
