@@ -171,16 +171,73 @@ $lastName = htmlspecialchars($_GET["lastname"]);
 }
 </code></pre>
         </section>
+        <section>
+          <h3>Let's Develop It</h3>
+          <p>Using <a href="http://localhost/gdi/myform.php" target="_blank">a sample form</a> we'll process some user-submitted data. This is a big task. Work piece by piece, and test as you go.</p>
+          <ol>
+            <li>Open the file myform.php, and find the two fields on the form. The form submits to the same page using POST</li>
+            <li>Add code to retrieve data from the form. Don't forget your if statement!</li>
+            <li>Add code to calculate the final bill</li>
+            <li>Add code to display the results somewhere on the page</li>
+          </ol>
+        </section>
       </section>
       <section>
-        <h3>Let's Develop It</h3>
-        <p>Using <a href="http://localhost/gdi/myform.php" target="_blank">a sample form</a> we'll process some user-submitted data. This is a big task. Work piece by piece, and test as you go.</p>
-        <ol>
-          <li>Open the file myform.php, and find the two fields on the form. The form submits to the same page using POST</li>
-          <li>Add code to retrieve data from the form. Don't forget your if statement!</li>
-          <li>Add code to calculate the final bill</li>
-          <li>Add code to display the results somewhere on the page</li>
-        </ol>
+        <section>
+          <h3>Cookies</h3>
+          <img src="img/cookies.jpg" alt="Cookies on a computer keyboard"/>
+          <p class="credit">Photo credit: <a href="https://flic.kr/p/PE7Wvc" target="_blank">Theo Crazzolara</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
+        </section>
+        <section>
+          <h3>Cookies</h3>
+          <ul>
+            <li>A cookie is small piece of data stored on a user's computer</li>
+            <li>Each time the same browser requests a page, it will send the cookie too</li>
+            <li>Often used to track data like logins or shopping carts</li>
+            <li>The user's browser must voluntarily accept the cookie. The browser settings control this.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Cookies in PHP</h3>
+          <p>PHP has built in features to set and read cookies. This uses a special superglobal, <code>$_COOKIE</code>. When we add vaues to this superglobal, PHP will also send the cookie to the user's computer.<p>
+        </section>
+        <section>
+          <h3>Setting Cookies</h3>
+          <p>The basic values used to set a cookie are:</p>
+          <ul>
+            <li>Name: The name of the cookie. Usually something like user or cart</li>
+            <li>Value: The value of the cookie, such a user's id or cart number</li>
+            <li>Expire: When the cookie should be deleted from the user's computer</li>
+            <li>Path: What parts of the site it shoudl apply to. / means the entire site, /folder will only apply in that directory</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Setting Cookies</h3>
+          <p>The basic syntax is:</p>
+<pre><code class="php">setcookie(name, value, expire, path)
+</code></pre>
+          <p>For example:</p>
+<pre><code class="php">$cookie_name = "username";
+$cookie_value = "Grace Hopper";
+$cookie_time = time() + (86400 * 30); //The current time, plus 30 days. The time stamp is in seconds, and there are 86400 seconds in one day
+setcookie($cookie_name, $cookie_value, $cookie_time, "/");
+</code></pre>
+        </section>
+        <section>
+          <h3>Reading Cookies</h3>
+          <p>We can use the <code>isset()</code> function to check to see if cookies exist. If they do, we can retrieve the information from the superglobal.</p>
+<pre><code class="php">if(!isset($_COOKIE[$cookie_name])) {
+    echo "Cookie named $cookie_name is not set!";
+} else {
+    echo "Cookie $cookie_name is set!<br />";
+    echo "Value is: " . $_COOKIE[$cookie_name];
+}
+</code></pre>
+        </section>
+        <section>
+          <h3>Let's Develop It</h3>
+          <p>Set a cookie on one of your pages. Then see if you can retrieve the value on a different page.</p>
+        </section>
       </section>
 
       <!-- Final slides-->
