@@ -371,7 +371,7 @@ for ($i = 0; $i &lt;= 20; $i++) {
 //Simple code
 $choices = array('red', 'orange', 'pink', 'yellow');
 foreach ($choices as  $key => $value)  {
-  echo "My #" . ($key + 1) . " choice is $value<br />";
+  echo "My #" . ($key + 1) . " choice is $value&lt;br /&gt;";
 }
 
 //Bonus solution
@@ -402,7 +402,7 @@ foreach ($choices as  $key => $value)  {
     }
   }
 
-  echo "My $choiceNum$choiceNumSuffix choice is $value<br />";
+  echo "My $choiceNum$choiceNumSuffix choice is $value&lt;br /&gt;";
 }
 </pre>
         </div>
@@ -410,33 +410,41 @@ foreach ($choices as  $key => $value)  {
         <h3>The Reading List</h3>
         <p>Keep track of which books you read and which books you want to read!</p>
         <ul>
-          <li>Create an array of objects, where each object describes a book and has properties for the title (a string), author (a string), and alreadyRead (a boolean indicating if you read it yet).</li>
-          <li>Iterate through the array of books. For each book, echo the book title and book author like so: "The Hobbit by J.R.R. Tolkien".</li>
-          <li>Now use an if/else statement to change the output depending on whether you read it yet or not. If you read it, echo a string like 'You already read "The Hobbit" by J.R.R. Tolkien', and if not, echo a string like 'You still need to read "The Lord of the Rings" by J.R.R. Tolkien.'</li>
+          <li>Create an object class called book, with properties for the title (a string), author (a string), and alreadyRead (a boolean indicating if you read it yet).</li>
+          <li>Add a constructor for this object.</li>
+          <li>Create at least two instances of the book object.</li>
+          <li>Create a method that describes the book. Use an if/else statement to change the output depending on whether you read it yet or not. If you read it, echo a string like 'You already read "The Hobbit" by J.R.R. Tolkien', and if not, echo a string like 'You still need to read "The Lord of the Rings" by J.R.R. Tolkien.'</li>
+          <li>Now </li>
         </ul>
 
         <button onclick="showSolution(13)">Show/Hide Solution</button>
         <div class="codebox" id="example13Code">
 <pre>
-$books = [
-  {title: 'The Design of EveryDay Things',
-  author: 'Don Norman',
-  alreadyRead: false
-  },
-  {title: 'The Most Human Human',
-  author: 'Brian Christian',
-  alreadyRead: true
-}];
+class book {
+  public $title;
+  public $author;
+  public $alreadyRead;
 
-for ($i = 0; i &lt; books.length; i++) {
-  $book = books[i];
-  $bookInfo = book.title + '" by ' + book.author;
-  if (book.alreadyRead) {
-    echo 'You already read "' + bookInfo);
-  } else {
-    echo 'You still need to read "' + bookInfo);
+  public function __construct($title, $author, $alreadyRead) {
+    $this->title = $title;
+    $this->author = $author;
+    $this->alreadyRead = $alreadyRead;
+  }
+
+  public function describeBook() {
+    if ($this->alreadyRead){
+      return "You already read \"$this->title\" by $this->author";
+    } else{
+      return "You still need to read \"$this->title\" by $this->author";
+    }
   }
 }
+
+$firstBook = new book("Colson Whitehead", "The Underground Railroad" , true);
+$secondBook = new book("Nicola Yoon", "The Sun Is Also a Star" , false);
+
+echo $firstBook->describeBook();
+echo $secondBook->describeBook();
 </pre>
 </div>
 
