@@ -96,27 +96,28 @@
             <h3>Include</h3>
             <p>Remeber DRY code (<strong>D</strong>on't <strong>R</strong>epeat <strong>Y</strong>ourself)? One of the best ways to avoid repeating code is to use <code>include</code>. The include command will include all the code from another file inside the current file. This is a powerful way to use a common file for repeated site elements, like a header, footer, or sidebar.</p>
           </section>
-        </section>
-        <section>
-          <h3>Using Include</h3>
-          <p>Let's say you have one file called vars.php, where you store all your common variables.</p>
+          <section>
+            <h3>Using Include</h3>
+            <p>Let's say you have one file called vars.php, where you store all your common variables.</p>
 <pre><code class="php">$color = 'green';
 $fruit = 'apple';
 </code></pre>
-          <p>If you include this file in another file, you can use those variables.</p>
+            <p>If you include this file in another file, you can use those variables.</p>
 <pre><code class="php">echo "A $color $fruit"; // Outputs A
 include 'vars.php';
 echo "A $color $fruit"; // Outputs A green apple
 </code></pre>
+          </section>
+          <section>
+            <h3>Let's Develop It</h3>
+            <p>I have created a basic sample site, broken into a header, footer, and sidebar.</p>
+            <ul>
+              <li><a href="class3-codesample.zip">Download a copy</a> and place all the files directly into your gdi folder</li>
+              <li>Go to <a href="http://localhost/gdi/sample.php" target="_blank">http://localhost/gdi/sample.php</a> to see the page</li>
+              <li>Using your text editor, look at the different pieces of the site. Try changing things and see what happens!</li>
+          </section>
         </section>
-        <section>
-          <h3>Let's Develop It</h3>
-          <p>I have created a basic sample site, broken into a header, footer, and sidebar.</p>
-          <ul>
-            <li><a href="class3-codesample.zip">Download a copy</a> and place all the files directly into your gdi folder</li>
-            <li>Go to <a href="http://localhost/gdi/sample.php" target="_blank">http://localhost/gdi/sample.php</a> to see the page</li>
-            <li>Using your text editor, look at the different pieces of the site. Try changing things and see what happens!</li>
-        </section>
+
         <!-- Loops -->
         <section id="loops">
           <section>
@@ -248,7 +249,7 @@ var_dump($fruits);
             <p>Foreach is a special type of loop that works with arrays.</p>
 <pre><code class="php">$numberList = array(1, 2, 3, 4, 5);
 foreach ($numberList as $value) {
-  echo $value . ' times 2 equals ' . ($value*2) . '&lt;br /&gt;';
+  echo "$value times 2 equals " . ($value*2) . "<br />";
 }
 </code></pre>
           </section>
@@ -262,7 +263,7 @@ foreach ($numberList as $value) {
 );
 
 foreach ($kittenColors as $name =&gt; $color) {
-  echo 'The kitten ' . $name . ' has ' . $color . ' fur.&lt;br /&gt;';
+  echo "The kitten $name has $color fur.<br />";
 }
 </code></pre>
           </section>
@@ -272,7 +273,169 @@ foreach ($kittenColors as $name =&gt; $color) {
           </section>
         </section>
 
+<!-- Objects -->
+      <section>
         <section>
+          <h3>Objects</h3>
+          <img src="img/matches.jpg" alt="Collection of matches"/>
+          <p class="credit">Photo credit:  <a href="https://flic.kr/p/8RnSsa">Jir&iacute; Volejn&iacute;k</a> <a href="http://creativecommons.org/licenses/by-nc-sa/2.0/">cc</a>
+        </section>
+
+        <section>
+          <h3>PHP is an object-oriented language</h3>
+          <ul>
+            <li>In the real world, important information often comes in collections. For example, a robot has attributes (material, color) and behaviors (beep, walk).</li>
+            <li>Objects allow us to represent these things in our code.</li>
+            <li>Objects are collections of related variables and functions.</li>
+            <li>Inside an object, variables are called <strong>properties</strong> (or attributes), and functions are called <strong>methods</strong>.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Declaring an object</h3>
+          <p>In PHP, you declare an object using the keyword <code>class</code></p>
+<pre><code class="php">class cat {
+
+}
+</code></pre>
+          <p>You can create a new instance of this object using the keyword <code>new</code></p>
+<pre><code class="php">$myKitty = new cat();
+</code></pre>
+        </section>
+
+        <section>
+          <h3>Object properties</h3>
+          <p>Variables associated with a variable are called properties. Properties can have starting values, or you can specify them when you create an instance of the object.</p>
+          <p>Properties must be be <code>public</code>, <code>protected</code> or <code>private</code>. For now, we'll use <code>public</code>.</p>
+<pre><code class="php">class cat {
+  public $isCute = true;
+  public $furColor;
+  public $name;
+}
+</code></pre>
+        </section>
+        <section>
+          <h3>Using object properties</h3>
+          <p>You can set and use object properties using the syntax <code>$objectInstance->property</code></p>
+<pre><code class="php">$myKitty = new cat();
+$myKitty->furColor = "Calico";
+$myKitty->name = "Caramel";
+echo $myKitty->name;
+</code></pre>
+        </section>
+
+        <section>
+          <h3>Let's Develop It</h3>
+          <ul>
+            <li>Create a vehicle object to store information about a vehicle. It should have properties for vehicleType (e.g., car, truck, plane), color, and topSpeed.</li>
+            <li>Set at least one default value when you define your object.</li>
+            <li>Create at least two instances of your object.</li>
+            <li>Set and display some object properties.</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- Object Methods -->
+      <section>
+        <section>
+          <h3>Object constructors</h3>
+          <p>Objects can also hold functions, called methods. A common method is a <strong>constructor</strong>. This is a simple function that makes it easy to set object properties when you make a new instance of the object.</p>
+<pre><code class="php">class cat {
+  public $isCute = true;
+  public $furColor;
+  public $name;
+
+  public function __construct($furColor, $name) {
+    $this->furColor = $furColor;
+    $this->name = $name;
+  }
+}
+</code></pre>
+        </section>
+        <section>
+          <h3>Object constructors</h3>
+          <p>Once we have a constructor, we can specify properties when we create a new instance</p>
+<pre><code class="php">$myKitty = new cat("calico", "Caramel");
+$neighborCat = new cat("gray", "Smoky");
+</code></pre>
+        </section>
+        <section>
+          <h3>Let's Develop It</h3>
+          <ul>
+            <li>Go back to your vehicle object. Add a constructor.</li>
+            <li>Use the constructor when you create an instance of the vehicle object.</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>Object methods</h3>
+          <p>We can also add other methods to the class.</p>
+<pre><code class="php">class cat {
+  public $isCute = true;
+  public $furColor;
+  public $name;
+
+  public function greet() {
+    return "Hi, $this->name! You are a pretty $this->furColor cat.<br />";
+  }
+}
+</code></pre>
+        </section>
+        <section>
+          <h3>Using object methods</h3>
+          <p>Calling a method is similar to a property, with the syntax <code>$objectInstance->method()</code>. For example</p>
+<pre><code class="php">echo $myKitty->greet();
+echo $neighborCat->greet();
+</code></pre>
+        </section>
+
+        <section>
+          <h3>Reference: Completed object code</h3>
+<pre><code class="php">class cat {
+  public $isCute = true;
+  public $furColor;
+  public $name;
+
+  public function __construct($input1, $input2) {
+    $this->furColor = $input1;
+    $this->name = $input2;
+  }
+
+  public function greet() {
+    return "Hi, $this->name! You are a pretty $this->furColor cat.<br />";
+  }
+}
+
+$myKitty = new cat("calico", "Caramel");
+$neighborCat = new cat("gray", "Smoky");
+
+echo $myKitty->furColor . "<br />";
+
+echo $myKitty->greet();
+echo $neighborCat->greet();
+</code></pre>
+        </section>
+
+        <section>
+          <h3>Let's Develop It</h3>
+          <ul>
+            <li>Go back to your vehicle object. Add a method to say "This [vehicleType] is [color]".</li>
+            <li>Call that method.</li>
+          </ul>
+        </section>
+      </section>
+
+
+
+      <!-- Final slides-->
+      <section id="final">
+        <section>
+          <h3>You did it!</h3>
+          <img src="img/fireworks.jpg" alt="Fireworks"/>
+          <p class="credit">Photo credit: <a href="http://www.flickr.com/photos/markwdw85/9425240584/" target="_blank">Mark W.</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
+        </section>
           <section>
             <h3>Resources</h3>
             <ul>
