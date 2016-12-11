@@ -89,15 +89,16 @@
         </section>
         <section>
           <h3>Let's Develop It</h3>
-          <p>We're going to practice retrieving data from requests to gather information from your users. We'll need a few more files.</p>
-          <ul>
-            <li><a href="class4-codesample.zip">Download a copy</a> and place all the files directly into your gdi folder</li>
-            <li>Go to <a href="http://localhost/gdi/mycats.php" target="_blank">http://localhost/gdi/mycats.php</a> to see the cat details page.</li>
-            <li>Go to <a href="http://localhost/gdi/myform.php" target="_blank">http://localhost/gdi/myform.php</a> to see the form we'll be using.</li>
+          <p>We're going to practice retrieving data from requests to gather information from your users. We'll need a few more files.<a href="class4-codesample.zip">Download a copy of today's practice files</a> and unzip them directly into your gdi folder.</li>
         </section>
       </section>
 
       <section>
+        <section>
+          <h3>User Input</h3>
+          <img src="img/comment-box.jpg" alt="Comment box"/>
+          <p class="credit">Photo credit: <a href="https://flic.kr/p/fnZ4RT" target="_blank">Rym DeCoster</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
+        </section>
         <section>
           <h3>URL Parameters</h3>
           <p>You send information via GET request. URL parameters go at the end of a URL. Parameters use the form <code>?var1=val1&amp;var2=val2&amp;...</code>. For example, you could send a first and last name like this:</p>
@@ -146,17 +147,49 @@ $lastName = htmlspecialchars($_GET["lastname"]);
         </section>
         <section>
           <h3>Using $_POST</h3>
-          <p><code>$_POST</code> is a superglobal variable, just like $_GET. When a user submits a form, the $_POST variable will store information based on the name of the HTML form field. So to retrieve data from this field:</p>
+          <p><code>$_POST</code> is a superglobal variable, just like $_GET. When a user submits a form, the $_POST variable will store information based on the name (not id!) of the HTML form field. So to retrieve data from this field:</p>
 <pre><code class="html">&lt;input type="text" name="question"&gt;
 </code></pre>
           <p>You would use this code:
-<pre><code class="php">$question = htmlspecialchars($_GET["question"]);
+<pre><code class="php">$question = htmlspecialchars($_POST["question"]);
 </code></pre>
           <p>Using <code>$_POST["fieldname"]</code> retrieves the value from the $_POST superglobal.</p>
         </section>
+        <section>
+          <h3>Using POST on forms</h3>
+          <p>There are two common ways to submit a form with PHP:</p>
+          <ol>
+            <li>Submit the form data to a seperate form-processing page, like a thank you or confirmation page.</li>
+            <li>Submit the form to the same page the form is on.</li>
+          </ol>
+        </section>
+        <section>
+          <h3>Checking the request type</h3>
+          <p>If you are submitting a form to the same PHP file, you can use an if statement to wrap your form-processing script:</p>
+<pre><code class="php">if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  //Process the form data and display results
+}
+</code></pre>
+        </section>
+      </section>
+      <section>
+        <h3>Let's Develop It</h3>
+        <p>Using <a href="http://localhost/gdi/myform.php" target="_blank">a sample form</a> we'll process some user-submitted data. This is a big task. Work piece by piece, and test as you go.</p>
+        <ol>
+          <li>Open the file myform.php, and find the two fields on the form. The form submits to the same page using POST</li>
+          <li>Add code to retrieve data from the form. Don't forget your if statement!</li>
+          <li>Add code to calculate the final bill</li>
+          <li>Add code to display the results somewhere on the page</li>
+        </ol>
       </section>
 
-      <section>
+      <!-- Final slides-->
+      <section id="final">
+        <section>
+          <h3>You did it!</h3>
+          <img src="img/jumping-man.jpg" alt="Man jumping in air"/>
+          <p class="credit">Photo credit: <a href="http://www.flickr.com/photos/sunface13/988453859/" target="_blank">sunface13</a> <a href="http://creativecommons.org/licenses/by-nc/2.0/" target="_blank">cc</a></p>
+        </section>
         <section>
           <h3>Resources</h3>
           <ul>
