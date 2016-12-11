@@ -92,7 +92,67 @@
           <p>We're going to practice retrieving data from requests to gather information from your users. We'll need a few more files.</p>
           <ul>
             <li><a href="class4-codesample.zip">Download a copy</a> and place all the files directly into your gdi folder</li>
+            <li>Go to <a href="http://localhost/gdi/mycats.php" target="_blank">http://localhost/gdi/mycats.php</a> to see the cat details page.</li>
             <li>Go to <a href="http://localhost/gdi/myform.php" target="_blank">http://localhost/gdi/myform.php</a> to see the form we'll be using.</li>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>URL Parameters</h3>
+          <p>You send information via GET request. URL parameters go at the end of a URL. Parameters use the form <code>?var1=val1&amp;var2=val2&amp;...</code>. For example, you could send a first and last name like this:</p>
+<pre><code class="php">http://example.com/index.php?firstname=ada&amp;lastname=lovelace
+</code></pre>
+        </section>
+        <section>
+          <h3>Super Globals</h3>
+          <p>Remember global and local variables? PHP has a special class of variables called superglobals. Superglobals are built-in variables that are always available in all scopes. <code>$_GET</code> is a superglobal that contains all the information from a GET request.</p>
+        </section>
+        <section>
+          <h3>Using $_GET</h3>
+          <p>To retrieve the first name and last name values from this url:</p>
+<pre><code class="php">http://example.com/index.php?firstname=ada&amp;lastname=lovelace
+</code></pre>
+          <p>You can use $_GET</p>
+<pre><code class="php">$firstName = htmlspecialchars($_GET["firstname"]);
+$lastName = htmlspecialchars($_GET["lastname"]);
+</code></pre>
+          <p>Using <code>$_GET["urlparameter"]</code> retrieves the value from the $_GET superglobal. The function <code>htmlspecialchars</code> is a built-in function to help clean up user data.</p>
+        </section>
+        <section>
+          <h3>Let's Develop It</h3>
+          <p>Let's practice using $_GET.</p>
+          <ol>
+            <li>Go to <a href="http://localhost/gdi/mycats.php" target="_blank">the cats list page.</a> You should see a list of cat names, with links.</li>
+            <li>Hover over one of the links. You should see a long URL, like this: catdetails.php?name=Caramel&amp;furcolor=Calico&amp;age=3&amp;personality=Sweet.</li>
+            <li>Click on a link. It will take you to a template page without any information.</li>
+            <li>Open up catdeatils.php. Modify the code of this page to use the $_GET variable to retrieve the information from the URL and store it in variables.</li>
+            <li>Display the variables in the table</li>
+          </ol>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>HTML Forms</h3>
+          <p>A simple HTML form may look something like this:</p>
+<pre><code class="html">&lt;form action="myform.php" method="post"&gt;
+  &lt;label for="question"&gt;A question?&lt;/label&gt;
+  &lt;input type="text" name="question" maxlength="50"&gt;
+  &lt;input type="submit" id="formSubmit" value="Submit"&gt;
+&lt;/form&gt;
+</code></pre>
+        <p>The <strong>action</strong> attribute tells the browser where to send the form. The <strong>method</strong> attribute tells the browser what type of HTTP request to use. In this case, when the user selects the submit button, the browser will send the form data to myform.php in a POST request.</p>
+        </section>
+        <section>
+          <h3>Using $_POST</h3>
+          <p><code>$_POST</code> is a superglobal variable, just like $_GET. When a user submits a form, the $_POST variable will store information based on the name of the HTML form field. So to retrieve data from this field:</p>
+<pre><code class="html">&lt;input type="text" name="question"&gt;
+</code></pre>
+          <p>You would use this code:
+<pre><code class="php">$question = htmlspecialchars($_GET["question"]);
+</code></pre>
+          <p>Using <code>$_POST["fieldname"]</code> retrieves the value from the $_POST superglobal.</p>
         </section>
       </section>
 
