@@ -1,5 +1,7 @@
-##Intro to JavaScript
-Slides and materials are hosted at [http://roenok.github.io/gdi-php-intro/](http://roenok.github.io/gdi-php-intro/).
+##Intro to PHP (Official)
+Slides and materials are hosted at
+<del>[http://roenok.github.io/gdi-php-intro/](http://roenok.github.io/gdi-php-intro/)</del>
+[https://gdiminneapolis.github.io/gdi-php-intro/](https://gdiminneapolis.github.io/gdi-php-intro/).
 
 This is the official Girl Develop It PHP curriculum, initially developed by Sylvia Pellicore.
 
